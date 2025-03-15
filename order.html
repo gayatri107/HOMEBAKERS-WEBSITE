@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Form</title>
+
+    <link rel="stylesheet" href="styles2.css">
+</head>
+
+<body>
+
+    <nav>
+        <img src="logo.jpeg" class="hello">
+        <ul>
+            <li><a href="home2 without button/homepage2.html">Home</a></li>
+            <li><a href="/loginregi gayatri/home2 without button/Contactus/aboutus.html">Contact us</a></li>
+            <li><a href="index.html">Buy</a></li>
+            <li><a href="#">Customize</a></li><!--manaal file-->
+        </ul>
+        <div class="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Place Your Order</h1>
+        <form action="confirmation.html" method="GET" id="orderForm">
+            <!-- Display Cake Name -->
+            <div class="form-group">
+                <label for="cakeName">Cake Name:</label>
+                <input type="text" id="cakeName" name="cakeName" readonly>
+            </div>
+
+            <!-- Display Cake Price -->
+            <div class="form-group">
+                <label for="cakePrice">Cake Price:</label>
+                <input type="text" id="cakePrice" name="cakePrice" readonly>
+            </div>
+
+            <div class="form-group">
+                <label for="cakeQuantity">Cake Quantity (kg):</label>
+                <input type="number" id="cakeQuantity" name="cakeQuantity" min="0.5" step="0.5" value="1" required>
+            </div>
+
+            <!-- Delivery Address -->
+            <div class="form-group">
+                <label for="address">Delivery Address:</label>
+                <textarea id="address" name="address" required></textarea>
+            </div>
+
+            <!-- Occasion -->
+            <div class="form-group">
+                <label for="occasion">Occasion:</label>
+                <input type="text" id="occasion" name="occasion" placeholder="Birthday, Anniversary, etc." required>
+            </div>
+
+            <!-- Custom Message -->
+            <div class="form-group">
+                <label for="message">What to write on the cake:</label>
+                <input type="text" id="message" name="message" placeholder="Happy Birthday John!">
+            </div>
+
+            <!-- Delivery Date -->
+            <div class="form-group">
+                <label for="deliveryDate">Delivery Date:</label>
+                <input type="date" id="deliveryDate" name="deliveryDate" required>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="submit-button" id="submit-order">Place Order</button>
+        </form>
+    </div>
+
+    <script>
+        // Get the URL parameters and set the form fields
+        const urlParams = new URLSearchParams(window.location.search);
+
+        // Set the cake name and price from the URL parameters
+        const productName = urlParams.get('product');
+        const productPrice = urlParams.get('price');
+
+        // If the parameters exist, set them in the form
+        if (productName && productPrice) {
+            document.getElementById('cakeName').value = productName;
+            document.getElementById('cakePrice').value = `₹${productPrice}`;
+        }
+
+        // When the form is submitted, append all data to the URL
+        document.getElementById('orderForm').addEventListener('submit', function (event) {
+            event.preventDefault();  // Prevent the default form submission
+
+            // Get the form values
+            const cakeName = document.getElementById('cakeName').value;
+            const cakePrice = document.getElementById('cakePrice').value;
+            const cakeQuantity = document.getElementById('cakeQuantity').value;
+            const address = document.getElementById('address').value;
+            const occasion = document.getElementById('occasion').value;
+            const message = document.getElementById('message').value;
+            const deliveryDate = document.getElementById('deliveryDate').value;
+
+            // Append form data to the URL
+            const actionUrl = this.action + `?cakeName=${encodeURIComponent(cakeName)}&cakePrice=${encodeURIComponent(cakePrice)}&cakeQuantity=${encodeURIComponent(cakeQuantity)}&address=${encodeURIComponent(address)}&occasion=${encodeURIComponent(occasion)}&message=${encodeURIComponent(message)}&deliveryDate=${encodeURIComponent(deliveryDate)}`;
+
+            // Redirect to the confirmation page with the URL parameters
+            window.location.href = actionUrl;
+        });
+    </script>
+</body>
+
+</html>

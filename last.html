@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        
+        
+.hello {
+    height: auto;
+    left: 100px;
+    width: 75px;
+  }
+  
+nav {
+    width: 100%;
+    height: 75px;
+    line-height: 75px;
+    padding: 0 100px;
+    background-image: linear-gradient(white, white);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+  }
+  
+  nav ul {
+    display: flex;
+    margin: auto;
+  }
+  
+  nav ul li {
+    list-style: none;
+  }
+  
+  nav li a {
+    font-size: 18px;
+    text-transform: uppercase;
+    padding: 0 30px;
+    color: black;
+    text-decoration: none;
+  }
+  
+  nav li a:hover {
+    color: rgb(16, 22, 18);
+    transition: all 0.4s ease;
+  }
+  
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .thank-you-message {
+            text-align: center;
+            color: #28a745;
+        }
+
+        .thank-you-message h1 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .order-id {
+            font-size: 1.2em;
+            color: #333;
+            margin-top: 20px;
+        }
+
+        .back-home-button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 30px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            font-size: 1.2em;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .back-home-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <img src="logo.jpeg" class="hello">
+        <ul>
+            <li><a href="/loginregi gayatri/home2 without button/homepage2.html">Home</a></li>
+            <li><a href="/loginregi gayatri/home2 without button/Contactus/aboutus.html">Contact us</a></li>
+            <li><a href="index.html">Buy</a></li>
+            <li><a href="#">Customize</a></li><!--manaal file-->
+        </ul>
+        <div class="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="thank-you-message">
+            <h1>Thank You for Your Order!</h1>
+            <p>Your cake order has been successfully placed. We are excited to prepare it for you!</p>
+        </div>
+
+        <div class="order-id">
+            <p><strong>Your Order ID:</strong> <span id="order-id"></span></p>
+        </div>
+
+        <a href="index.html" class="back-home-button">Back to Home</a>
+    </div>
+
+    <script>
+        // Generate a unique Order ID (for demonstration purposes, using a random number)
+        function generateOrderID() {
+            return 'ORD-' + Math.floor(Math.random() * 1000000);
+        }
+
+        // Set the order ID in the HTML
+        document.getElementById('order-id').textContent = generateOrderID();
+    </script>
+</body>
+
+</html>

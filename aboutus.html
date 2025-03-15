@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+    integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+<style>
+  *{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  body{
+    font-family: 'Outfit';
+    background: linear-gradient(#85ff72,#59f610);
+}
+.hello {
+    height: auto;
+    left: 100px;
+    width: 75px;
+  }
+  
+        nav {
+         width: 100%;
+         height: 75px;
+         line-height: 75px;
+         padding: 0 100px;
+         background-image: linear-gradient(white, white);
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+         z-index: 100;
+         }
+
+nav ul {
+  display: flex;
+  margin: auto;
+}
+
+nav ul li {
+  list-style: none;
+}
+
+nav li a {
+  font-size: 18px;
+  text-transform: uppercase;
+  padding: 0 30px;
+  color: black;
+  text-decoration: none;
+}
+
+nav li a:hover {
+  color: rgb(16, 22, 18);
+  transition: all 0.4s ease;
+}
+
+.nav-buttons {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+.contact-container{
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.contact-left{
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 20px;
+
+}
+.contact-left-title h2{
+  font-weight: 600;
+  color: green;
+  font-size: 40px;
+  margin-bottom: 5px;
+}
+.contact-left-title hr{
+  border:none;
+  width: 120px;
+  height: 5px;
+  background-color: green;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+.contact-inputs{
+  width: 400px;
+  height: 50px;
+  border: none;
+  outline: none;
+  padding-left: 25px;
+  font-weight: 500;
+  color: black;
+  border-radius: 50px;
+}
+.contact-left textarea{
+  height: 140px;
+  padding-top: 15px;
+  border-radius: 20px;
+}
+.contact-inputs:focus{
+  border: 2px solid black;
+
+}
+.contact-inputs::placeholder{
+  color: black;
+
+}
+.contact-left button{
+  display: flex;
+  align-items: center;
+  padding: 15px 30px;
+  font-size: 16px;
+  color: white;
+  gap: 10px;
+  border: none;
+  border-radius: 50px;
+  background: linear-gradient(270deg,lightgreen,green);
+  cursor: pointer;
+}
+.contact-left button img{
+  height: 15px;
+}
+.contact-right img{
+  width: 500px;
+
+}
+
+@media(max-width:800px){
+  .contact-inputs{
+    width: 80vw;
+  }
+  .contact-right{
+    display: none;
+  }
+
+}
+</style>
+<body>
+  <nav>
+    <img src="logo.jpeg" class="hello">
+    <ul>
+        <li><a href="/loginregi gayatri/home2 without button/homepage2.html">Home</a></li>
+        <li><a href="aboutus.html">Contact us</a></li>
+        <li><a href="/loginregi gayatri/home2 without button/PRODUCT,ORDER PAGE/index.html">Buy</a></li>
+        <li><a href="#">Customize</a></li><!--manaal file-->
+    </ul>
+    <div class="menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</nav>
+
+  <div class="contact-container">
+    <form action="https://api.web3forms.com/submit" method="POST" class="contact-left">
+      <div class="contact-left-title">
+        <h2>Get in Touch</h2>
+        <hr>
+      </div>
+      <input type="hidden" name="access_key" value="f57834e4-81ff-47bf-be3d-e373064ff6f2">
+      <input type="text" name="name" placeholder="Your Name" class="contact-inputs" required>
+      <input type="text" email="email" placeholder="Your Email" class="contact-inputs" required>
+      <textarea name="message" placeholder="Your Message" class="contact-inputs" required></textarea>
+      <button type="submit">Submit <img src="arrow_icon.png"></button>
+    </form>
+    <div class="contact-right">
+      <img src="right_img.png" alt="">
+    </div>
+  </div>
+</body>
+
+
+</html>

@@ -1,0 +1,123 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+.hello {
+    height: auto;
+    left: 100px;
+    width: 75px;
+}
+
+nav {
+    width: 100%;
+    height: 75px;
+    line-height: 75px;
+    padding: 0 100px;
+    position: fixed;
+    background-image: linear-gradient(white, white);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+nav ul {
+    display: flex;
+    margin: auto;
+}
+
+nav ul li {
+    list-style: none;
+}
+
+nav li a {
+    font-size: 18px;
+    text-transform: uppercase;
+    padding: 0 30px;
+    color: black;
+    text-decoration: none;
+}
+
+nav li a:hover {
+    color: rgb(16, 22, 18);
+    transition: all 0.4s ease;
+}
+
+/* Add padding-top to ensure content is not hidden under the fixed navbar */
+.container {
+    margin-top: 85px; 
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 2.5em;
+}
+
+.grid {
+    display: grid; /* Grid layout for product cards */
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Responsive grid */
+    gap: 20px; /* Space between cards */
+}
+
+.product-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: center;
+    background-color: #f8f8f8;
+    transition: transform 0.3s, box-shadow 0.3s;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.product-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.product-card h2 {
+    font-size: 1.2em;
+    margin: 10px 0;
+    color: #333;
+}
+
+.order-now {
+    background-color: forestgreen;
+}
+
+.price {
+    font-size: 1.5em;
+    color: #e67e22;
+    margin: 10px 0;
+}
+
+.footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.9em;
+    color: #777;
+}
+
+@media screen and (max-width: 768px) {
+    .grid {
+        grid-template-columns: 1fr; /* One column for smaller screens */
+    }
+}

@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>login - BOOKLOOP</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f3f3;
+            margin: 0;
+            padding: 0;
+
+        }
+
+        body::-webkit-scrollbar {
+            display: none;
+        }
+
+        #background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('images.jpeg') no-repeat center center/cover;
+        z-index: -1;
+    }
+
+        .hello {
+    height: auto;
+    left: 100px;
+    width: 75px;
+  }
+
+        nav {
+        width: 100%;
+         height: 75px;
+         line-height: 75px;
+         padding: 0 100px;
+         background-image: linear-gradient(white, white);
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+         z-index: 100;
+        }
+
+nav ul {
+  display: flex;
+  margin: auto;
+}
+
+nav ul li {
+  list-style: none;
+}
+
+nav li a {
+  font-size: 18px;
+  text-transform: uppercase;
+  padding: 0 30px;
+  color: black;
+  text-decoration: none;
+}
+
+nav li a:hover {
+  color: rgb(16, 22, 18);
+  transition: all 0.4s ease;
+}
+
+.nav-buttons {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+button {
+  background-color: black;
+  margin-left: 20px;
+  border-radius: 40px;
+  padding: 15px 20px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button a {
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+button:hover {
+  background-color: #444;
+}
+
+        .container {
+            max-width: auto;
+            height: auto;
+            margin: 50px 600px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+            position: relative;
+            float: center;
+        }
+
+        .logo {
+            position: absolute;
+            top: 10px;
+            margin-left: 78px;
+            width: 100px;
+            height: auto;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        form {
+            margin-top: 40px;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: calc(100% - 22px);
+            padding: 8px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            box-sizing: border-box;
+            font-size: 14px;
+
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            background-color: #00cb18;
+            color: white;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0f6300;
+        }
+
+        .separator {
+            text-align: center;
+            margin: 20px 0;
+            position: relative;
+        }
+
+        .separator:before,
+        .separator:after {
+            content: "";
+            display: inline-block;
+            width: 45%;
+            border-top: 1px solid #ccc;
+            position: absolute;
+            top: 50%;
+        }
+
+        .separator:before {
+            right: 100%;
+            margin-right: 10px;
+        }
+
+        .separator:after {
+            left: 100%;
+            margin-left: 10px;
+        }
+
+
+        .eye-icon {
+            width: 20px;
+        }
+
+        .already-have-account {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .already-have-account button {
+            background: none;
+            border: 3px;
+            border-width: 2px;
+            color: rgb(255, 0, 0);
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .already-have-account button:hover {
+            color: #00cb18;
+            transition: 0.5s;
+        }
+
+        .wrapper .button1 {
+            display: inline-block;
+            margin-left: 20px;
+            height: 60px;
+            width: 60px;
+
+            margin: 0 15px;
+            overflow: hidden;
+            background: #fff;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease-out;
+
+        }
+
+        .wrapper .button1:hover {
+            width: 200px;
+
+        }
+
+        .wrapper .button1 .icon {
+            display: inline-block;
+            height: 60px;
+            width: 60px;
+            text-align: center;
+            border-radius: 50px;
+            box-sizing: border-box;
+            line-height: 60px;
+        }
+
+        .wrapper .button1:hover .icon {
+            background: lightblue;
+        }
+
+        .wrapper .button1 .icon i {
+            font-size: 25px;
+            line-height: 60px;
+            transition: all 0.3s ease-out;
+
+        }
+
+        .wrapper .button1 span {
+            font-size: 20px;
+            font-weight: 500;
+            line-height: 60px;
+            margin-left: 10px;
+
+        }
+
+        @media screen and (max-width:450px) {
+            body {
+                overflow-x: hidden;
+            }
+
+            .container {
+                width: 220px;
+                height: auto;
+
+                right: 570px
+            }
+
+            .logo {
+                position: absolute;
+                left: 5px;
+            }
+
+            input[type="submit"] {
+                width: 100%;
+                background-color: #00cb18;
+                color: white;
+                padding: 10px;
+                margin: 10px 0;
+                border: none;
+                border-radius: 3px;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+            }
+
+            
+        }
+
+        @media screen and (max-width:1200px) {
+
+            .container {
+                width: 400px;
+                right: 300px;
+                top : 100px;
+
+                
+        }
+    }
+    @media screen and (max-width:1500px) {
+
+.container {
+    width: 400px;
+    right: 200px;
+    top : 100px;
+    }
+
+.logo{
+    right: 160px;
+}
+
+}
+    </style>
+</head>
+
+<body>
+    <div id="background">
+    </div>
+
+    <!--navigation bar-->
+    <nav>
+        <img src="logo.jpeg" class="hello">
+        <ul>
+            <li><a href="home2 without button/homepage2.html">Home</a></li>
+            <li><a href="home2 without button/Contactus/aboutus.html">Contact us</a></li>
+            <li><a href="home2 without button/PRODUCT,ORDER PAGE/index.html">Buy</a></li>
+            <li><a href="#">Customize</a></li><!--manaal file-->
+        </ul>
+        <div class="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+    <!--navigation bar ends -->
+
+    <!--login form-->
+
+    <div class="container">
+        <img src="logo.jpeg" alt="Logo" class="logo"><br><br><br><br>
+        <h2>Login</h2>
+        <form id="Login" action="home2 without button/homepage2.html" method="get">
+            <input type="text" id="email" name="email" placeholder="Email Address" required><br>
+            <input type="password" id="password" name="password" placeholder="Password" required>
+            <input type="submit" value="Login">
+        </form>
+        <div class="separator">or</div>
+        <div class="wrapper">
+            <div class="button1" id="googleUp">
+                <div class="icon">
+                    <button id="GoogleLogin" class="fab fa-google"></button>
+                </div>
+                <span>Google</span>
+            </div>
+            <br>
+
+            <a href="register.html">
+                <div class="already-have-account">
+                    <button>Create account?</button>
+                </div>
+            </a>
+        </div>
+    </div>
+    <!--login form ends-->
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
+        import { getDatabase, update, ref } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-database.js";
+        import { getAuth, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-auth.js";
+        const firebaseConfig = {
+            apiKey: "AIzaSyCjBatjTOI4t29JhCLR44XcE32qtmVfNrA",
+            authDomain: "bookloop-signup-login.firebaseapp.com",
+            projectId: "bookloop-signup-login",
+            storageBucket: "bookloop-signup-login.appspot.com",
+            messagingSenderId: "456722367228",
+            appId: "1:456722367228:web:112cf4a7dc4dee364ecd79",
+            measurementId: "G-1FLXS838ZD"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const database = getDatabase(app);
+        const auth = getAuth(app);
+        const provider = new GoogleAuthProvider(app);
+
+
+        let Mainform = document.getElementById('Login');
+
+        let LoginUser = evt => {
+            evt.preventDefault();
+
+            let email = document.getElementById('email').value;
+            let password = document.getElementById('password').value;
+
+            signInWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                    // Signed in 
+                    const user = userCredential.user;
+                    const dt = new Date();
+
+                    update(ref(database, 'users/' + user.uid), {
+                        last_login: dt,
+
+                    })
+                    alert('User LOGGED IN!');
+                    // ...
+                })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    alert(errorMessage);
+                });
+
+        };
+        Mainform.addEventListener('submit', LoginUser);
+
+
+        GoogleLogin.addEventListener('click', (e) => {
+            signInWithPopup(auth, provider)
+                .then((result) => {
+                    // This gives you a Google Access Token. You can use it to access the Google API.
+                    const credential = GoogleAuthProvider.credentialFromResult(result);
+                    const token = credential.accessToken;
+                    const user = result.user;
+                    alert(user.displayName);
+
+                }).catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    const email = error.customData.email;
+                    const credential = GoogleAuthProvider.credentialFromError(error);
+                    alert(errorMessage);
+                    // ...
+                });
+        });
+    </script>
+    <script src="login.js"></script>
+</body>
+
+</html>

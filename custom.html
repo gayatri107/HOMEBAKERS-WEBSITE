@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cake Customization Form</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    form { max-width: 600px; margin: auto; }
+    label { display: block; margin-top: 15px; }
+    input, select, textarea { width: 100%; padding: 8px; margin-top: 5px; }
+    button { margin-top: 15px; padding: 10px 15px; background-color: #28a745; color: white; border: none; cursor: pointer; }
+    button:hover { background-color: #218838; }
+  </style>
+</head>
+<body>
+  <h1>Customize Your Cake</h1>
+  <form id="customCakeForm">
+    <label for="cakeBase">Choose your cake base:</label>
+    <select id="cakeBase" name="cake_base" required>
+      <option value="Vanilla">Vanilla</option>
+      <option value="Chocolate">Chocolate</option>
+      <option value="Red Velvet">Red Velvet</option>
+    </select>
+
+    <label for="cakeSize">Select size:</label>
+    <select id="cakeSize" name="size" required>
+      <option value="6-inch">6-inch</option>
+      <option value="8-inch">8-inch</option>
+      <option value="10-inch">10-inch</option>
+    </select>
+
+    <label for="cakeFlavor">Choose a flavor:</label>
+    <select id="cakeFlavor" name="flavor" required>
+      <option value="Strawberry">Strawberry</option>
+      <option value="Mocha">Mocha</option>
+      <option value="Lemon">Lemon</option>
+    </select>
+
+    <label>Pick your toppings:</label>
+    <input type="checkbox" name="toppings" value="Sprinkles"> Sprinkles<br>
+    <input type="checkbox" name="toppings" value="Fruit"> Fresh Fruit<br>
+    <input type="checkbox" name="toppings" value="Nuts"> Nuts<br>
+    <input type="checkbox" name="toppings" value="Edible Glitter"> Edible Glitter<br>
+
+    <label for="customMessage">Custom Message:</label>
+    <input type="text" id="customMessage" name="custom_message" placeholder="e.g., Happy Birthday John">
+
+    <label for="additionalInstructions">Additional Instructions:</label>
+    <textarea id="additionalInstructions" name="additional_instructions" placeholder="Special requests or instructions..."></textarea>
+
+    <button type="submit">Submit Custom Order</button>
+  </form>
+
+  <div id="orderSummary" style="margin-top: 20px; display: none;">
+    <h2>Order Summary</h2>
+    <p id="summaryText"></p>
+  </div>
+
+  <script>
+    // JavaScript for form handling
+    const form = document.getElementById('customCakeForm');
+    const orderSummary = document.getElementById('orderSummary');
+    const summaryText = document.getElementById('summaryText');
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent page reload
+
+      const formData = new FormData(form);
+      const toppings = [];
+      formData.getAll('toppings').forEach(topping => toppings.push(topping));
+
+      const summary = `
+        Cake Base: ${formData.get('cake_base')}<br>
+        Size: ${formData.get('size')}<br>
+        Flavor: ${formData.get('flavor')}<br>
+        Toppings: ${toppings.join(', ') || 'None'}<br>
+        Custom Message: ${formData.get('custom_message') || 'None'}<br>
+        Additional Instructions: ${formData.get('additional_instructions') || 'None'}
+      `;
+
+      summaryText.innerHTML = summary;
+      orderSummary.style.display = 'block';
+    });
+  </script>
+</body>
+</html>

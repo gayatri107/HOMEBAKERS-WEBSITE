@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Cake-A-licious</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <nav>
+        <img src="logo.jpeg" class="hello">
+        <ul>
+            <li><a href="/loginregi gayatri/home2 without button/homepage2.html">Home</a></li>
+            <li><a href="/loginregi gayatri/home2 without button/Contactus/aboutus.html">Contact us</a></li>
+            <li><a href="index.html">Buy</a></li>
+            <li><a href="#">Customize</a></li><!--manaal file-->
+        </ul>
+        <div class="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <div class="container">
+     
+        <div class="grid">
+            <!-- Product 1 -->
+            <div class="product-card">
+                <img src="images/cake1.png" alt="Chocolate Cake">
+                <h2>Chocolate Cake</h2>
+                <p class="price">₹500</p>
+                <button class="order-now" data-product="Chocolate Cake" data-price="500">Order Now</button>
+            </div>
+            <!-- Product 2 -->
+            <div class="product-card">
+                <img src="images/cake2.png" alt="Vanilla Cake">
+                <h2>Vanilla Cake</h2>
+                <p class="price">₹450</p>
+                <button class="order-now" data-product="Vanilla Cake" data-price="450">Order Now</button>
+            </div>
+            <!-- Product 3 -->
+            <div class="product-card">
+                <img src="images/cake3.png" alt="Red Velvet Cake">
+                <h2>Red Velvet Cake</h2>
+                <p class="price">₹600</p>
+                <button class="order-now" data-product="Red Velvet Cake" data-price="600">Order Now</button>
+            </div>
+            <!-- Product 4 -->
+            <div class="product-card">
+                <img src="images/cake5.png" alt="Fruit Cake">
+                <h2>Fruit Cake</h2>
+                <p class="price">₹550</p>
+                <button class="order-now" data-product="Fruit Cake" data-price="550">Order Now</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+<script>
+    // Handle "Order Now" button clicks
+document.querySelectorAll('.order-now').forEach(button => {
+    button.addEventListener('click', () => {
+        const product = button.dataset.product;
+        const price = button.dataset.price;
+
+        // Redirect to the order form page with product and price as query parameters
+        window.location.href = `order.html?product=${encodeURIComponent(product)}&price=${encodeURIComponent(price)}`;
+    });
+});
+
+</script>

@@ -1,0 +1,196 @@
+ <!DOCTYPE html>
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmation</title>
+    <style>
+        * {
+    box-sizing: border-box; /* Ensures padding and borders don't affect width/height */
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    background-color: #f4f4f4;
+}
+.hello {
+    height: 50px; /* Adjust the height of the logo */
+    width: auto;  /* Maintain the aspect ratio */
+    margin-right: 20px; /* Add some space between logo and navigation links */
+}
+
+/* Navbar styling */
+nav {
+    width: 100%;
+    height: 75px;
+    line-height: 75px;
+    padding: 0 100px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-image: linear-gradient(white, white);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+nav ul {
+    display: flex;
+    margin: auto;
+}
+
+nav ul li {
+    list-style: none;
+}
+
+nav li a {
+    font-size: 18px;
+    text-transform: uppercase;
+    padding: 0 30px;
+    color: black;
+    text-decoration: none;
+}
+
+nav li a:hover {
+    color: rgb(16, 22, 18);
+    transition: all 0.4s ease;
+}
+
+/* Order summary styling */
+.order-summary {
+    margin-top: 120px; /* Pushes content below the navbar */
+    padding: 20px;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 400px; /* Sets a fixed width for the order summary */
+    z-index: 50;
+}
+
+/* Adjustments for heading and text within order summary */
+.order-summary h2 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.order-summary p {
+    font-size: 1.1em;
+    color: #555;
+    margin: 10px 0;
+}
+
+/* Notification styling */
+.notification {
+    display: none;
+    background-color: #28a745;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+}
+
+/* Confirm button styling */
+.btn-confirm {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-confirm:hover {
+    background-color: #0056b3;
+}
+</style>
+</head>
+
+<body>
+    <nav>
+        <img src="logo.jpeg" class="hello">
+        <ul>
+            <li><a href="/loginregi gayatri/home2 without button/homepage2.html">Home</a></li>
+            <li><a href="/loginregi gayatri/home2 without button/Contactus/aboutus.html">Contact us</a></li>
+            <li><a href="index.html">Buy</a></li>
+            <li><a href="#">Customize</a></li><!--manaal file-->
+        </ul>
+        <div class="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <div class="order-summary">
+        <h2>Order Summary</h2>
+        <p><strong>Product:</strong> <span id="product-name"></span></p>
+        <p><strong>Price:</strong> <span id="product-price"></span></p>
+        <p><strong>Cake Quantity:</strong> <span id="cakeQuantity"></span></p>
+        <p><strong>Address:</strong> <span id="address"></span></p>
+        <p><strong>Occasion:</strong> <span id="occasion"></span></p>
+        <p><strong>Message:</strong> <span id="message"></span></p>
+        <p><strong>Delivery Date:</strong> <span id="deliveryDate"></span></p>
+
+        <button class="btn-confirm" id="confirm-order">Confirm Order</button>
+    </div>
+
+    <div id="order-notification" class="notification">Your cake order has been successfully placed!</div>
+
+    <script>
+        // Get the order data from the query parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const cakeName = urlParams.get('cakeName');
+        const cakePrice = urlParams.get('cakePrice');
+        const cakeQuantity = urlParams.get('cakeQuantity');
+        const address = urlParams.get('address');
+        const occasion = urlParams.get('occasion');
+        const message = urlParams.get('message');
+        const deliveryDate = urlParams.get('deliveryDate');
+
+        // Populate the order summary with the passed data
+        document.getElementById('product-name').textContent = cakeName || "N/A";
+        document.getElementById('product-price').textContent = cakePrice || "N/A";
+        document.getElementById('cakeQuantity').textContent = cakeQuantity || "N/A";
+        document.getElementById('address').textContent = address || "N/A";
+        document.getElementById('occasion').textContent = occasion || "N/A";
+        document.getElementById('message').textContent = message || "N/A";
+        document.getElementById('deliveryDate').textContent = deliveryDate || "N/A";
+
+        // Handle order confirmation button click
+        document.getElementById('confirm-order').addEventListener('click', function () {
+            // Show notification
+            document.getElementById('order-notification').style.display = 'block';
+
+            // Hide notification after 3 seconds
+            setTimeout(function () {
+                document.getElementById('order-notification').style.display = 'none';
+            }, 3000);
+
+            // Redirect to another page after confirmation (if desired)
+            window.location.href = "last.html";  // Update the destination as needed
+        });
+    </script>
+  </body>
+ </html>
+
+
+
+
+
+
+
+
